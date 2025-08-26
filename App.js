@@ -1,26 +1,46 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import React,{useState, useEffect} from 'react';
+import React, { useState } from 'react';
 
 export default function App() {
+  const [filme, setFilme] = useState('leitura');
+  const [estado, setEstado] = useState('Carregando...');
 
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState('***********');
+  if (filme === 'leitura') {
 
   return (
     <View style={styles.container}>
-      <Text>Meu app funciona!!</Text>
+      {filme === 'leitura' ? (
+        <Text style={styles.header}>Olá mundo00000000000</Text>
+      ) : filme === 'assistido' ? (
+        <Text>Filme assistido!</Text>
+      ) : (
+        <Text>{estado}</Text>
+      )}
+
+      <TouchableOpacity onPress={() => setFilme('assistido')}>
+        <Text>Mudar para Assistido</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
-      <Button title='Aumentar' onPress={() => setCount(count + 1)} />
-      <Button title='Diminuir' onPress={() => setCount(count - 1)} />
-      <Button title='Alterar nome' onPress={() => setName('Lucas praxedes.')} />
-        <View style={{marginTop:20}}>
-          <Text>Contador: {count}</Text>
-          <Text>Nome: {name}</Text>
-        </View>
     </View>
   );
 }
+  else{
+        <View style={styles.container}>
+      {filme === 'leitura' ? (
+        <Text style={styles.header}>Olá mundo</Text>
+      ) : filme === 'assistido' ? (
+        <Text>Filme assistido!</Text>
+      ) : (
+        <Text>{estado}</Text>
+      )}
+
+      <TouchableOpacity onPress={() => setFilme('leitura')}>
+        <Text>Mudar para Leitura</Text>
+      </TouchableOpacity>
+      <StatusBar style="auto" />
+    </View>
+  }
 
 const styles = StyleSheet.create({
   container: {
@@ -29,4 +49,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  header: {
+    fontSize: 26,
+    textAlign: 'center',
+    margin: 10,
+  },
+
 });
+}
