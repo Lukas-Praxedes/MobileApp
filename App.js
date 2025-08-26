@@ -13,7 +13,7 @@ export default function App() {
       <StatusBar style="auto" />
       <Button title='Aumentar' onPress={() => setCount(count + 1)} />
       <Button title='Diminuir' onPress={() => setCount(count - 1)} />
-      <Button title='Alterar nome' onPress={() => setName('Segredo revelado.')} />
+      <Button title='Alterar nome' onPress={() => setName('Lucas praxedes.')} />
         <View style={{marginTop:20}}>
           <Text>Contador: {count}</Text>
           <Text>Nome: {name}</Text>
